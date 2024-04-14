@@ -1,0 +1,114 @@
+Overview:
+	This project is dedicated to providing a foundational framework for coffee shop and restaurant operators to embrace. As online ordering becomes increasingly trendy, a growing number of businesses in the foodservice industry are shifting from traditional paper menus to digital alternatives. There is a  eagerness among these establishments to transform their business models, and my project endeavors to offer a system that facilitates this transition. The proposed framework is designed to assist staff in populating a digital menu, including various categories, items, and prices, and in generating QR codes automatically. These codes can be printed and made available on tables for easy ordering. This not only enhances customer convenience but also furnishes a platform for staff and managers to gather and analyze transactional data. The system will provide General and Limited Access Views (GAV and LAV) for managers to audit the database and predict customer preferences for future menu development. Moreover, it will create a database to store order information and another for inventory management, with the consumed ingredients being synchronized with stock levels for efficient updates.
+
+	The target audience for this innovative solution comprises forward-thinking restaurateurs and café owners who recognize the potential of digital transformation to streamline their operations and enrich customer experiences. It is aimed particularly at those seeking to reduce paper waste, optimize staff efficiency, and harness data analytics for strategic decision-making. The purpose of the platform is to streamline the dining experience for both customers and businesses. Customers will benefit from an enhanced ordering process, featuring a thoughtfully designed user interface that makes menu navigation and selection a pleasure. On the flip side, restaurant owners will enjoy real-time feedback and the ability to monitor customer responses and order statuses promptly through the platform. This dual convenience aims to foster a more engaging and efficient interaction, elevating the standard for service in the food industry by harmonizing aesthetic appeal with functional excellence.
+
+	
+	The application will initially launch as a web-based platform, developed using the CodeIgniter MVC framework and bookstraped to ensure a scalable, secure, and maintainable architecture. Data management will be handled through the MySQL relational database system, emphasizing security and integrity. While the primary focus is on creating an accessible and responsive user interface suitable for various devices, the development of a native mobile application will only be considered for future phases. 
+
+
+
+	The application will be established on web-based platform, using the CodeIgniter MVC and bootstraped to make sure that the architecture is secure and stable.It will use MySQL to handle the database system,which will make sure the consistency and integrity
+of the system.And I will focus on developing the UI of the system on current stage.
+
+
+
+
+
+
+
+
+
+
+
+
+TABLE Payments {
+    PaymentID integer [primary key]
+    OrderID integer
+    Method varchar(50)
+    Status varchar(50)
+    Amount float
+}
+
+
+
+TABLE Inventory {
+    InventoryID integer [primary key]
+    ItemID integer
+    Quantity integer
+    Threshold integer
+}
+
+
+
+TABLE Feedback {
+    FeedbackID integer [primary key]
+    CustomerID integer
+    OrderID integer
+    Rating integer
+    Comments text
+}
+
+
+TABLE Analytics {
+    ReportID integer [primary key]
+    Date datetime
+    TotalSales float
+    PeakTimes varchar(255)
+    CustomerFlow varchar(255)
+}
+
+TABLE Notifications {
+    NotificationID integer [primary key]
+    CustomerID integer
+    Message text
+    Status varchar(50)
+}
+
+TABLE QRCodes {
+    QRCodeID integer [primary key]
+    TableID integer
+    CodeData text
+    CreatedAt datetime
+}
+
+
+
+
+
+
+
+Accuracy of Mood Detection
+
+Ref: Orders.CustomerID > Customers.CustomerID // many-to-one
+Ref: Orders.TableID > Tables.TableID // many-to-one
+Ref: Order_Details.OrderID > Orders.OrderID // many-to-one
+Ref: Order_Details.ItemID > MenuItems.ItemID // many-to-one
+
+Ref: Payments.OrderID > Orders.OrderID // many-to-one
+Ref: Storage.ItemID > MenuItems.ItemID // many-to-one
+Ref: Feedback.CustomerID > Customers.CustomerID // many-to-one
+Ref: Feedback.OrderID > Orders.OrderID // many-to-one
+Ref: Notifications.CustomerID > Customers.CustomerID // many-to-one
+Ref: QRCodes.TableID > Tables.TableID // many-to-one
+
+
+
+The Python programming language is used to implement a food recommendation system based on content and collaborative filtering technology.It used .The implementation of collaborative filtering leverages user ID, food ID, and rating attributes.
+
+
+
+
+User-Friendly Customer Interface
+Restaurant Dashboard Interface
+Menu Management interface
+Notifications System   Interface
+Reports and Analytics　Interface
+
+
+
+
+
+
+
+
